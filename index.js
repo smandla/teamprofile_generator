@@ -69,6 +69,7 @@ function internQuestions() {
     },
   ];
   inquirer.prompt(questions).then((answers) => {
+    //create new intern obj with params being passed
     arr.push(answers);
     console.log("arr", arr);
     addEmployee();
