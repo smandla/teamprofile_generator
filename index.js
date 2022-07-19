@@ -3,6 +3,8 @@ const fs = require("fs");
 const generateHTML = require("./src/generateHTML");
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
+const Intern = require("./lib/Intern");
+
 const arr = [];
 function init() {
   managerQuestions();
@@ -29,7 +31,7 @@ function managerQuestions() {
       answers.managerOfficeNum
     );
     arr.push(managerData);
-    console.log(arr);
+    // console.log(arr);
     addEmployee();
   });
 }
@@ -55,8 +57,8 @@ function addEmployee() {
       console.log("Intern");
       internQuestions();
     } else {
-      console.log("NOne");
-      fs.writeFile(`${arr[0].name}.html`, generateHTML(arr), (err) =>
+      //   console.log("NOne");
+      fs.writeFile(`${arr[0].getName()}.html`, generateHTML(arr), (err) =>
         err ? console.error(err) : console.log("Success!")
       );
       //   break;
@@ -85,7 +87,7 @@ function internQuestions() {
       answers.internSchool
     );
     arr.push(intern);
-    console.log("arr", arr);
+    // console.log("arr", arr);
     addEmployee();
   });
 }
@@ -106,12 +108,12 @@ function employeeQuestions() {
     //create engineer obj to push
     const engineer = new Engineer(
       answers.engineerName,
-      answers.enginnerID,
-      answers.enginerEmail,
-      answers.enginerGitHubUsername
+      answers.engineerId,
+      answers.engineerEmail,
+      answers.engineerGitHubUsername
     );
     arr.push(engineer);
-    console.log("arr", arr);
+    // console.log("arr", arr);
     addEmployee();
   });
 }
