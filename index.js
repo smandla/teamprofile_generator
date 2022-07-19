@@ -1,4 +1,6 @@
 const inquirer = require("inquirer");
+const fs = require("fs");
+const generateHTML = require("./src/generateHTML");
 const arr = [];
 function init() {
   managerQuestions();
@@ -46,7 +48,10 @@ function addEmployee() {
       internQuestions();
     } else {
       console.log("NOne");
-      break;
+      fs.writeFile(`${arr[0].name}.html`, generateHTML(arr), (err) =>
+        err ? console.error(err) : console.log("Success!")
+      );
+      //   break;
     }
   });
 }
