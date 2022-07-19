@@ -1,6 +1,8 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 const generateHTML = require("./src/generateHTML");
+const Manager = require("./lib/Manager");
+const Engineer = require("./lib/Engineer");
 const arr = [];
 function init() {
   managerQuestions();
@@ -19,8 +21,14 @@ function managerQuestions() {
     },
   ];
   inquirer.prompt(questions).then((answers) => {
-    // console.log(answers);
-    arr.push(answers);
+    //create new manager data obj with data from answers
+    const managerData = new Manager(
+      answers.managerName,
+      answers.managerID,
+      answers.managerEmail,
+      answers.managerOfficeNum
+    );
+    arr.push(managerData);
     console.log(arr);
     addEmployee();
   });
@@ -70,7 +78,13 @@ function internQuestions() {
   ];
   inquirer.prompt(questions).then((answers) => {
     //create new intern obj with params being passed
-    arr.push(answers);
+    const intern = new Intern(
+      answers.internName,
+      answers.internID,
+      answers.internEmail,
+      answers.internSchool
+    );
+    arr.push(intern);
     console.log("arr", arr);
     addEmployee();
   });
@@ -89,7 +103,14 @@ function employeeQuestions() {
     },
   ];
   inquirer.prompt(questions).then((answers) => {
-    arr.push(answers);
+    //create engineer obj to push
+    const engineer = new Engineer(
+      answers.engineerName,
+      answers.enginnerID,
+      answers.enginerEmail,
+      answers.enginerGitHubUsername
+    );
+    arr.push(engineer);
     console.log("arr", arr);
     addEmployee();
   });
