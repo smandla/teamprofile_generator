@@ -40,11 +40,31 @@ function addEmployee() {
     // console.log(answers);
     if (answers.employeeType === "Engineer") {
       console.log("Engineer");
+      employeeQuestions();
     } else if (answers.employeeType === "Intern") {
       console.log("Intern");
     } else {
       console.log("NOne");
     }
+  });
+}
+function employeeQuestions() {
+  const questions = [
+    { name: "engineerName", message: "What is your engineer's name?" },
+    {
+      name: "engineerID",
+      message: "What is the team engineer's id?",
+    },
+    { name: "engineerEmail", message: "What is the team engineer's email?" },
+    {
+      name: "engineerGitHubUsername",
+      message: "What is the team engineer's GitHub username?",
+    },
+  ];
+  inquirer.prompt(questions).then((answers) => {
+    arr.push(answers);
+    console.log("arr", arr);
+    addEmployee();
   });
 }
 init();
