@@ -21,7 +21,14 @@ function generateHTML(data) {
   //   distributeData;
   //   console.log(data[0].constructor.name);
   const filtered = distributeData(data);
-  console.log(filtered[0][0].getName());
+  //   console.log(filtered[0][0].getName());
+  //   console.log(filtered[1][0]);
+  // console.log(filtered[2][0]);
+  // console.log(
+  //   filtered[1].map((engineer) => {
+  //     console.log(engineer.getName(), enginee);
+  //   })
+  // );
   //   console.log();
   //   const { employeeName, employeeId, employeeEmail, officeNumber } = data[0];
   //   console.log(employeeName, employeeId, employeeEmail, officeNumber);
@@ -74,7 +81,32 @@ function generateHTML(data) {
                     </a>
                   </span>
                   <span>
-                    GitHub:{" "}
+                    GitHub:
+                    <a href="#" class="card-link">
+                      ${engineer.getGitHubUsername()}
+                    </a>
+                  </span>
+                </div>
+              </div>
+            </div>`;
+        })}
+        ${filtered[1].map((engineer) => {
+          return `<div class="card" style="width: 18rem">
+              <div class="card-body">
+                <h5 class="card-title">${engineer.getName()}</h5>
+                <h6 class="card-subtitle mb-2">Emoji?</h6>
+                <p class="card-text">
+                  ID:<span>${engineer.getId()}</span>
+                </p>
+                <div class="container row">
+                  <span>
+                    Email:
+                    <a href="#" class="card-link">
+                      ${engineer.getEmail()}
+                    </a>
+                  </span>
+                  <span>
+                    GitHub:
                     <a href="#" class="card-link">
                       ${engineer.getGitHubUsername()}
                     </a>
@@ -99,7 +131,7 @@ function generateHTML(data) {
                     </a>
                   </span>
                   <span>
-                    GitHub:{" "}
+                    School:
                     <a href="#" class="card-link">
                       ${intern.getSchool()}
                     </a>

@@ -108,7 +108,7 @@ function employeeQuestions() {
     //create engineer obj to push
     const engineer = new Engineer(
       answers.engineerName,
-      answers.engineerId,
+      answers.engineerID,
       answers.engineerEmail,
       answers.engineerGitHubUsername
     );
