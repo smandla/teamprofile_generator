@@ -43,9 +43,30 @@ function addEmployee() {
       employeeQuestions();
     } else if (answers.employeeType === "Intern") {
       console.log("Intern");
+      internQuestions();
     } else {
       console.log("NOne");
+      break;
     }
+  });
+}
+function internQuestions() {
+  const questions = [
+    { name: "internName", message: "What is your intern's name?" },
+    {
+      name: "internID",
+      message: "What is the team intern's id?",
+    },
+    { name: "internEmail", message: "What is the team intern's email?" },
+    {
+      name: "internSchool",
+      message: "What is the team intern's school?",
+    },
+  ];
+  inquirer.prompt(questions).then((answers) => {
+    arr.push(answers);
+    console.log("arr", arr);
+    addEmployee();
   });
 }
 function employeeQuestions() {
