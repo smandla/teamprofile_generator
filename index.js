@@ -58,8 +58,10 @@ function addEmployee() {
       internQuestions();
     } else {
       //   console.log("NOne");
-      fs.writeFile(`${arr[0].getName()}.html`, generateHTML(arr), (err) =>
-        err ? console.error(err) : console.log("Success!")
+      fs.writeFile(
+        `./dist/${arr[0].getName()}.html`,
+        generateHTML(arr),
+        (err) => (err ? console.error(err) : console.log("Success!"))
       );
       //   break;
     }

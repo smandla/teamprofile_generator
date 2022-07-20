@@ -69,7 +69,7 @@ function generateHTML(data) {
           return `<div class="card" style="width: 18rem">
               <div class="card-body">
                 <h5 class="card-title">${engineer.getName()}</h5>
-                <h6 class="card-subtitle mb-2">Emoji?</h6>
+                <h6 class="card-subtitle mb-2">${engineer.getRole()}</h6>
                 <p class="card-text">
                   ID:<span>${engineer.getId()}</span>
                 </p>
@@ -90,36 +90,12 @@ function generateHTML(data) {
               </div>
             </div>`;
         })}
-        ${filtered[1].map((engineer) => {
-          return `<div class="card" style="width: 18rem">
-              <div class="card-body">
-                <h5 class="card-title">${engineer.getName()}</h5>
-                <h6 class="card-subtitle mb-2">Emoji?</h6>
-                <p class="card-text">
-                  ID:<span>${engineer.getId()}</span>
-                </p>
-                <div class="container row">
-                  <span>
-                    Email:
-                    <a href="#" class="card-link">
-                      ${engineer.getEmail()}
-                    </a>
-                  </span>
-                  <span>
-                    GitHub:
-                    <a href="#" class="card-link">
-                      ${engineer.getGitHubUsername()}
-                    </a>
-                  </span>
-                </div>
-              </div>
-            </div>`;
-        })}
+
         ${filtered[2].map((intern) => {
           return `<div class="card" style="width: 18rem">
               <div class="card-body">
                 <h5 class="card-title">${intern.getName()}</h5>
-                <h6 class="card-subtitle mb-2">Emoji?</h6>
+                <h6 class="card-subtitle mb-2">${intern.getRole()}</h6>
                 <p class="card-text">
                   ID:<span>${intern.getId()}</span>
                 </p>
