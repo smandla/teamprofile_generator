@@ -11,7 +11,10 @@ function init() {
 }
 function managerQuestions() {
   const questions = [
-    { name: "managerName", message: "What is the team manager's name?" },
+    {
+      name: "managerName",
+      message: "What is the team manager's name? (first and last name) ",
+    },
     {
       name: "managerID",
       message: "What is the team manager's id?",

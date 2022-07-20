@@ -46,19 +46,19 @@ function generateHTML(data) {
         rel="stylesheet"
         href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
       />
-      <link rel="stylesheet" href="./assets/css/style.css" />
+      <link rel="stylesheet" href="../assets/css/style.css" />
     </head>
     <body>
       <header><h1>My Team</h1></header>
       <main class="row justify-content-center w-100 cards">
       
-        <div class="card" style="width: 18rem">
+        <div class="card manager" style="width: 18rem">
           <div class="card-body">
             <h5 class="card-title">${filtered[0][0].getName()}</h5>
-            <h6 class="card-subtitle mb-2">Emoji?</h6>
+            <h6 class="card-subtitle mb-2 ">${filtered[0][0].getRole()}</h6>
             <p class="card-text">ID:<span>${filtered[0][0].getId()}</span></p>
             <div class="container row">
-              <span> Email: <a href="#" class="card-link">${filtered[0][0].getEmail()}</a></span>
+              <span> Email: <a href="mailto:${filtered[0][0].getEmail()}" class="card-link">${filtered[0][0].getEmail()}</a></span>
               <span>
                 Office Number: <a href="#" class="card-link">${filtered[0][0].getOfficeNumber()}</a></span
               >
@@ -66,23 +66,23 @@ function generateHTML(data) {
           </div>
         </div>
         ${filtered[1].map((engineer) => {
-          return `<div class="card" style="width: 18rem">
+          return `<div class="card engineer" style="width: 18rem">
               <div class="card-body">
                 <h5 class="card-title">${engineer.getName()}</h5>
-                <h6 class="card-subtitle mb-2">${engineer.getRole()}</h6>
+                <h6 class="card-subtitle mb-2 ">${engineer.getRole()}</h6>
                 <p class="card-text">
                   ID:<span>${engineer.getId()}</span>
                 </p>
                 <div class="container row">
                   <span>
                     Email:
-                    <a href="#" class="card-link">
+                    <a href="mailto:${engineer.getEmail()}" class="card-link">
                       ${engineer.getEmail()}
                     </a>
                   </span>
                   <span>
                     GitHub:
-                    <a href="#" class="card-link">
+                    <a href="https://github.com/${engineer.getGitHubUsername()}" class="card-link">
                       ${engineer.getGitHubUsername()}
                     </a>
                   </span>
@@ -92,7 +92,7 @@ function generateHTML(data) {
         })}
 
         ${filtered[2].map((intern) => {
-          return `<div class="card" style="width: 18rem">
+          return `<div class="card intern" style="width: 18rem">
               <div class="card-body">
                 <h5 class="card-title">${intern.getName()}</h5>
                 <h6 class="card-subtitle mb-2">${intern.getRole()}</h6>
@@ -102,15 +102,15 @@ function generateHTML(data) {
                 <div class="container row">
                   <span>
                     Email:
-                    <a href="#" class="card-link">
+                    <a href="mailto:${intern.getEmail()}" class="card-link">
                       ${intern.getEmail()}
                     </a>
                   </span>
                   <span>
                     School:
-                    <a href="#" class="card-link">
+                    <p>
                       ${intern.getSchool()}
-                    </a>
+                    </p>
                   </span>
                 </div>
               </div>
