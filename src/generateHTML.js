@@ -83,7 +83,7 @@ function generateHTML(data) {
                 <div class="container row">
                   <span>
                     Email:
-                    <a href="mailto:${engineer.getEmail()}" class="card-link">
+                    <a target="_blank" href="mailto:${engineer.getEmail()}" class="card-link">
                       ${engineer.getEmail()}
                     </a>
                   </span>
@@ -115,7 +115,7 @@ function generateHTML(data) {
                   </span>
                   <span>
                     School:
-                    <a>
+                    <a href="#">
                       ${intern.getSchool()}
                     </a>
                   </span>
